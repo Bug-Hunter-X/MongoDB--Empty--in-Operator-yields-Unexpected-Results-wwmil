@@ -1,0 +1,2 @@
+# MongoDB Empty $in Operator Bug
+This repository demonstrates a subtle bug in MongoDB queries involving the `$in` operator and empty arrays. The query `db.collection.find({ field: { $in: [] } })` is expected to return all documents, but instead returns an empty array. This is because `$in` with an empty array doesn't match anything. The solution involves using the `$exists` operator to check if the field exists and return appropriate results.
